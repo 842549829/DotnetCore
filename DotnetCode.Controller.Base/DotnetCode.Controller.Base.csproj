@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetCore.Code.Mvc\DotnetCore.Code.Mvc.csproj" />
+    <ProjectReference Include="..\DotnetCore.Code\DotnetCore.Code.csproj" />
+    <ProjectReference Include="..\DotnetCore.Model\DotnetCore.Model.csproj" />
+    <ProjectReference Include="..\DotnetCore.Service\DotnetCore.Service.csproj" />
+  </ItemGroup>
+
+</Project>

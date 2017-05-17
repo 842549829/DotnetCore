@@ -1,0 +1,4 @@
+﻿{
+  "ProviderName": "MySql.Data.MySqlClient",
+  "ConnectionString": "server=192.168.10.9;user id=root;password=admin;persistsecurityinfo=True;database=DB;charset=utf8; AllowUserVariables=True"
+}

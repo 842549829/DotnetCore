@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetCore.DbCommon\DotnetCore.DbCommon.csproj" />
+    <ProjectReference Include="..\DotnetCore.IDbFactory\DotnetCore.IDbFactory.csproj" />
+    <ProjectReference Include="..\DotnetCore.IRepository\DotnetCore.IRepository.csproj" />
+    <ProjectReference Include="..\DotnetCore.Repository\DotnetCore.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
