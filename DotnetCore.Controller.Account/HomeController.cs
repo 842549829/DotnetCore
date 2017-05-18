@@ -1,5 +1,5 @@
-﻿using Dotnet.Code.Code;
-using DotnetCode.Controller.Base;
+﻿using DotnetCode.Controller.Base;
+using DotnetCore.Code.Code;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetCore.Controller.Account
@@ -38,14 +38,14 @@ namespace DotnetCore.Controller.Account
             return Json(data);
         }
 
-        /// <summary>
-        /// QueryMenu
-        /// </summary>
-        /// <returns>ActionResult</returns>
-        public IActionResult QueryTMenu()
-        {
-            return this.PartialView();
-        }
+        ///// <summary>
+        ///// QueryMenu
+        ///// </summary>
+        ///// <returns>ActionResult</returns>
+        //public IActionResult QueryTMenu()
+        //{
+        //    return this.PartialView();
+        //}
 
         /// <summary>
         /// 注销

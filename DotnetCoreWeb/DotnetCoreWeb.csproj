@@ -8,6 +8,13 @@
     <Content Include="wwwroot\css\pagination.css" />
     <Content Include="wwwroot\css\Permission\Menu\MenuList.css" />
     <Content Include="wwwroot\favicon.ico" />
+    <Content Include="wwwroot\js\views\Account\Unauthorized\Login.js" />
+    <Content Include="wwwroot\js\views\Account\User\UserList.js" />
+    <Content Include="wwwroot\js\views\Permission\Menu\MenuList.js" />
+    <Content Include="wwwroot\js\views\Permission\PermissionMenu\PermissionMenuList.js" />
+    <Content Include="wwwroot\js\views\Permission\PermissionRole\PermissionRole.js" />
+    <Content Include="wwwroot\js\views\Permission\Role\RoleList.js" />
+    <Content Include="wwwroot\js\views\Shared\_Layout.js" />
     <Content Include="wwwroot\js\widget\common.js" />
     <Content Include="wwwroot\js\widget\copyText.js" />
     <Content Include="wwwroot\js\widget\layerExtend.js" />
@@ -269,6 +276,7 @@
     <Content Include="wwwroot\lib\hplus\plugins\fullavatareditor\scripts\test.js" />
     <Content Include="wwwroot\lib\jquery-1.11.3.js" />
     <Content Include="wwwroot\lib\jquery-1.11.3.min.js" />
+    <Content Include="wwwroot\lib\jquery-3.2.1.js" />
     <Content Include="wwwroot\lib\jquery.tmpl.js" />
     <Content Include="wwwroot\lib\json2.js" />
     <Content Include="wwwroot\lib\layer-v2.0\demo.html" />
@@ -764,10 +772,12 @@
 
   <ItemGroup>
     <Folder Include="Views\Account\User\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="Views\Permission\" />
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\js\views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\WithoutPermission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
@@ -782,6 +792,14 @@
     <ProjectReference Include="..\DotnetCore.Code\DotnetCore.Code.csproj" />
     <ProjectReference Include="..\DotnetCore.Controller.Account\DotnetCore.Controller.Account.csproj" />
     <ProjectReference Include="..\DotnetCore.Service\DotnetCore.Service.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="logs.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

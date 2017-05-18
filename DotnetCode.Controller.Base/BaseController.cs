@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DotnetCode.Controller.Base.Filters;
 using DotnetCore.Model.Transfer;
 using DotnetCore.Service;
 using DotnetCore.Code.Mvc;
@@ -12,7 +13,7 @@ namespace DotnetCode.Controller.Base
     /// 基础控制器
     /// </summary>
     [UserAuthorize]
-    [OperatingAuthorize]
+    //[OperatingAuthorize]
     public class BaseController : Microsoft.AspNetCore.Mvc.Controller
     {
         /// <summary>

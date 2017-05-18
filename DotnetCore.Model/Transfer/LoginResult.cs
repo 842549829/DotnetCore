@@ -1,5 +1,5 @@
-﻿using Dotnet.Code.Code;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DotnetCore.Code.Code;
 
 namespace DotnetCore.Model.Transfer
 {

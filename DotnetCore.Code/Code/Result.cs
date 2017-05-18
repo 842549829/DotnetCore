@@ -1,4 +1,4 @@
-﻿namespace Dotnet.Code.Code
+﻿namespace DotnetCore.Code.Code
 {
     /// <summary>
     /// 结果

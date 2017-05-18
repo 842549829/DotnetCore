@@ -102,18 +102,16 @@ namespace DotnetCore.Code.Code
                     int y1 = random.Next(image.Height);
                     int y2 = random.Next(image.Height);
                     Color clr = color[random.Next(color.Length)];
-                    g.DrawLine(new Pen(clr), x1, y1, x2, y2);
+                    //g.DrawLine(new Pen(clr), x1, y1, x2, y2);
                 }
-
-                LinearGradientBrush brush = new LinearGradientBrush(new Rectangle(0, 0, image.Width, image.Height), Color.Blue, Color.DarkRed, 1.2F, true);
 
                 //画验证码字符串 
                 for (int i = 0; i < validateCode.Length; i++)
                 {
                     string fnt = font[random.Next(font.Length)];
-                    Font ft = new Font(fnt, 16);
+                    Font ft = new Font(fnt, 14);
                     Color clr = color[random.Next(color.Length)];
-                    g.DrawString(validateCode[i].ToString(), ft, new SolidBrush(clr), (float)i * 18, (float)0);
+                    g.DrawString(validateCode[i].ToString(), ft, new SolidBrush(clr), (float)i * 12, 5);
                 }
 
                 //画图片的前景干扰点
@@ -121,7 +119,7 @@ namespace DotnetCore.Code.Code
                 {
                     int x = random.Next(image.Width);
                     int y = random.Next(image.Height);
-                    image.SetPixel(x, y, Color.FromArgb(random.Next()));
+                    //image.SetPixel(x, y, Color.FromArgb(random.Next()));
                 }
 
                 //画图片的边框线

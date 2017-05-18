@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.0" />
+    <PackageReference Include="Autofac.Configuration" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DotnetCore.Code\DotnetCore.Code.csproj" />
     <ProjectReference Include="..\DotnetCore.DbCommon\DotnetCore.DbCommon.csproj" />
     <ProjectReference Include="..\DotnetCore.Domain\DotnetCore.Domain.csproj" />

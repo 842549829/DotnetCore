@@ -1,5 +1,4 @@
-﻿using Dotnet.Code.Code;
-using DotnetCore.Code.Code;
+﻿using DotnetCore.Code.Code;
 using DotnetCore.Code.Constant;
 using DotnetCore.Code.Mvc;
 using DotnetCore.Model.Transfer;
@@ -23,16 +22,9 @@ namespace DotnetCode.Controller.Base
             {
                 var session = HttpContext.Current.Session;
 
-                if (session == null)
-                {
-                    return null;
-                }
-                return session.Get<string>(Const.LoginValidateCodeSessionKey);
+                return session?.Get<string>(Const.LoginValidateCodeSessionKey);
             }
-            set
-            {
-                HttpContext.Current.Session.Set(Const.LoginValidateCodeSessionKey, value);
-            }
+            set => HttpContext.Current.Session.Set(Const.LoginValidateCodeSessionKey, value);
         }
 
         /// <summary>
@@ -64,22 +56,20 @@ namespace DotnetCode.Controller.Base
         /// </summary>
         private static void ClearValidateCode()
         {
-            HttpContext.Current.Session.Set(Const.LoginValidateCodeSessionKey, null);
+            HttpContext.Current.Session.Set(Const.LoginValidateCodeSessionKey, string.Empty);
         }
 
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="userName">登录名</param>
-        /// <param name="password">登录密码</param>
-        /// <param name="validateCode">登录验证码</param>
+        /// <param name="loginModel">登录</param>
         /// <returns>登录结果</returns>
-        public static Result Logon(string userName, string password, string validateCode)
+        public static Result Logon(LoginModel loginModel)
         {
             Result result = new Result();
-            if (ValidateValidateCode(validateCode))
+            if (ValidateValidateCode(loginModel.ValidateCode))
             {
-                result = Logon(userName, password);
+                result = Logon(loginModel.UserName, loginModel.Password);
             }
             else
             {

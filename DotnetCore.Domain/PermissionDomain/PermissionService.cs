@@ -13,7 +13,7 @@ namespace DotnetCore.Domain.PermissionDomain
         /// <summary>
         /// 当前上下文
         /// </summary>
-        public static IDbFactory.IDbFactory DbContext { get; } //= Factory.GetFactory<IDbFactory.IDbFactory>();
+        public static IDbFactory.IDbFactory DbContext { get; } = Factory.DbContext;
 
         /// <summary>
         /// 查询用户的权限

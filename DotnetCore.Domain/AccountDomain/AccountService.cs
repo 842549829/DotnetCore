@@ -1,5 +1,4 @@
 ﻿using System;
-using DotnetCore.DbCommon.Repositroies;
 using DotnetCore.Domain.VerificationCodeDomain;
 using DotnetCore.Model.DB;
 
@@ -13,7 +12,7 @@ namespace DotnetCore.Domain.AccountDomain
         /// <summary>
         /// 当前上下文
         /// </summary>
-        public static IDbFactory.IDbFactory DbContext { get; } //= Factory.GetFactory<IDbFactory.IDbFactory>();
+        public static IDbFactory.IDbFactory DbContext { get; } = Factory.DbContext;
 
         /// <summary>
         /// 根据帐号查询

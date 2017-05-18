@@ -1,5 +1,9 @@
-﻿using DotnetCode.Controller.Base;
+﻿using System.Threading.Tasks;
+using DotnetCode.Controller.Base;
+using DotnetCore.Model.Transfer;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace DotnetCore.Controller.Account
 {
@@ -20,15 +24,16 @@ namespace DotnetCore.Controller.Account
         /// <summary>
         /// 登录方法
         /// </summary>
-        /// <param name="userName">登录信息</param>
-        /// <param name="password">登录密码</param>
-        /// <param name="validateCode">验证码</param>
+        /// <param name="model">登录信息</param>
         /// <returns>结果</returns>
-        [AcceptVerbs("POST")]
-        public IActionResult Login(string userName, string password, string validateCode)
+        [HttpPost]
+        public IActionResult Login([FromBody]LoginModel model)
         {
-            var result = LogonUtility.Logon(userName, password, validateCode);
-            return Json(result);
+            var result = LogonUtility.Logon(model);
+            return Json(result, new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver()
+            });
         }
 
         /// <summary>

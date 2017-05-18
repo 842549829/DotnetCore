@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DotnetCore.Code.Write
 {
@@ -96,8 +97,7 @@ namespace DotnetCore.Code.Write
         /// <param name="path">日志路径</param>
         public static void WriteLog(string content, string path)
         {
-            Action action = () => Log(content, path);
-            action.BeginInvoke(null, null);
+            Task.Factory.StartNew(() => Log(content, path));
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace DotnetCore.Code.Write
                 try
                 {
                     TextWriter textWriter = new TextWriter(path);
-                    string logContent = $"{DateTime.Now.ToString("日志时间:yyyy-MM-dd HH:mm:ss")}{Environment.NewLine}{content}{Environment.NewLine}";
+                    string logContent = $"{DateTime.Now:日志时间:yyyy-MM-dd HH:mm:ss}{Environment.NewLine}{content}{Environment.NewLine}";
                     return textWriter.WriteLog(logContent);
                 }
                 catch (Exception)
