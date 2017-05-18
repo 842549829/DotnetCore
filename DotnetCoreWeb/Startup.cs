@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using DotnetCode.Controller.Base.Filters;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using DotnetCore.Code.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace DotnetCoreWeb
 {
@@ -24,6 +26,13 @@ namespace DotnetCoreWeb
             services.AddDistributedMemoryCache();
             services.AddSession();
 
+            // 注册视图规则
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.ViewLocationExpanders.Add(new CustomViewLocationExpander());
+            });
+
+            // 注册MVC
             services.AddMvc();
         }
 
