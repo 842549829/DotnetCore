@@ -116,15 +116,15 @@ namespace DotnetCore.Service
         /// </summary>
         /// <param name="condition">查询条件</param>
         /// <returns>结果</returns>
-        public static EsayUIQueryResult<TRole> QueryRolesByPaging(TRoleCondition condition)
+        public static QueryResult<TRole> QueryRolesByPaging(TRoleCondition condition)
         {
             using (var roleRepository = DbContext.CreateIRoleRepository())
             {
                 var data = roleRepository.QueryRolesByPaging(condition).ToTRole();
-                EsayUIQueryResult<TRole> roles = new EsayUIQueryResult<TRole>
+                QueryResult<TRole> roles = new QueryResult<TRole>
                 {
-                    rows = data,
-                    total = condition.RowsCount
+                    Data = data,
+                    Paging = condition.Paging
                 };
                 return roles;
             }

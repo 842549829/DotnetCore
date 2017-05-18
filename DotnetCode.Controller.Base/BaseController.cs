@@ -5,7 +5,9 @@ using DotnetCore.Model.Transfer;
 using DotnetCore.Service;
 using DotnetCore.Code.Mvc;
 using DotnetCore.Code.Constant;
-using Notify.Controller.Base.Filters;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace DotnetCode.Controller.Base
 {
@@ -80,6 +82,19 @@ namespace DotnetCode.Controller.Base
         public static bool HasPermission(string address)
         {
             return MenuService.HasPermission(Menu, address);
+        }
+
+        /// <summary>
+        /// 返回MyJson
+        /// </summary>
+        /// <param name="data">data</param>
+        /// <returns>json</returns>
+        public JsonResult MyJson(object data)
+        {
+            return Json(data, new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver()
+            });
         }
     }
 }

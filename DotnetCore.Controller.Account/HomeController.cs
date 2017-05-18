@@ -38,15 +38,6 @@ namespace DotnetCore.Controller.Account
             return Json(data);
         }
 
-        ///// <summary>
-        ///// QueryMenu
-        ///// </summary>
-        ///// <returns>ActionResult</returns>
-        //public IActionResult QueryTMenu()
-        //{
-        //    return this.PartialView();
-        //}
-
         /// <summary>
         /// 注销
         /// </summary>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using DotnetCode.Controller.Base;
 using DotnetCore.Code.Code;
 using DotnetCore.Model.Transfer;
@@ -19,23 +18,9 @@ namespace DotnetCode.Controller.Permission
         /// </summary>
         /// <returns>视图</returns>
         [OperatingAuthorize]
-        public IActionResult RoleList(TRoleCondition condition)
+        public IActionResult RoleList()
         {
-            if (condition != null)
-            {
-                //IEnumerable<TRole> data = RoleService.QueryRolesByPagings(condition);
-                //PagedList<TRole> pageList = new PagedList<TRole>(data, condition.PageIndex, condition.PageSize, condition.RowsCount);
-                //ViewModel<TRoleCondition, PagedList<TRole>> result = new ViewModel<TRoleCondition, PagedList<TRole>>
-                //{
-                //    Condition = condition,
-                //    Data = pageList
-                //};
-                return this.View(result);
-            }
-            else
-            {
-                return this.View();
-            }
+            return this.View();
         }
 
         /// <summary>

@@ -47,11 +47,9 @@
             $("#hidOperationType").val("Update");
             $("#hidParnetId").val(treeNode.pId);
             $("#hidMenuId").val(treeNode.id);
-            var parameter = JSON.stringify({ menuId: treeNode.id });
             $.ajaxExtend({
-                data: parameter,
                 async: false,
-                url: "/Menu/QueryMenuById",
+                url: "/Menu/QueryMenuById" + "?menuId=" + treeNode.id,
                 success: function (d) {
                     $("#txtMenuName").val(d.MenuName);
                     $("#txtMenuUrl").val(d.MenuUrl);
@@ -66,8 +64,7 @@
             clearEdit();
             $.layerConfirm("你确定要删除吗", { icon: 3, title: "提示" }, function () {
                 $.ajaxExtend({
-                    data: JSON.stringify({ "menuId": treeNode.id }),
-                    url: "/Menu/RemoveMenu",
+                    url: "/Menu/RemoveMenu" + "?menuId=" + treeNode.id,
                     success: function (d) {
                         if (d.IsSucceed) {
                             initMenu();

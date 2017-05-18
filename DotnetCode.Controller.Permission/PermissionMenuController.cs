@@ -28,7 +28,7 @@ namespace DotnetCode.Controller.Permission
         /// </summary>
         /// <returns>角色Id</returns>
         [HttpPost]
-        public IActionResult QueryMenuIds([FromBody]Guid roleId)
+        public IActionResult QueryMenuIds([FromQuery]Guid roleId)
         {
             var data = PermissionService.QueryMenuIds(roleId);
             return MyJson(data);

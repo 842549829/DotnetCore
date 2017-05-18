@@ -57,16 +57,16 @@ namespace DotnetCore.Repository.Access
                 this.AddParameter("@RoleDescription", condition.RoleDescription);
             }
 
-            if (condition.GetRowsCount)
+            if (condition.Paging.GetRowsCount)
             {
                 string sqlCount = "SELECT COUNT(0) FROM Role WHERE 1 = 1 " + sqlCondition + ";";
                 object obj = this.ExecuteScalar(sqlCount);
-                condition.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
+                condition.Paging.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
             }
 
-            string sqlData = string.Format("SELECT TOP {0} * FROM Role WHERE Id NOT IN( SELECT TOP {1} Id  FROM Role);", condition.PageSize, condition.StratRows);
-            this.AddParameter("@StratRows", condition.StratRows);
-            this.AddParameter("@PageSize", condition.PageSize);
+            string sqlData = string.Format("SELECT TOP {0} * FROM Role WHERE Id NOT IN( SELECT TOP {1} Id  FROM Role);", condition.Paging.PageSize, condition.Paging.StratRows);
+            this.AddParameter("@StratRows", condition.Paging.StratRows);
+            this.AddParameter("@PageSize", condition.Paging.PageSize);
             return this.BuildEntitiesFromSql(sqlData);
         }
 

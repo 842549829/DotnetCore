@@ -51,6 +51,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrap", "Bootstrap", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Controller.Account", "DotnetCore.Controller.Account\DotnetCore.Controller.Account.csproj", "{3EC0E87A-1084-44F1-9520-06F73B65F484}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCode.Controller.Permission", "DotnetCode.Controller.Permission\DotnetCode.Controller.Permission.csproj", "{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{3EC0E87A-1084-44F1-9520-06F73B65F484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC0E87A-1084-44F1-9520-06F73B65F484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC0E87A-1084-44F1-9520-06F73B65F484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,5 +154,6 @@ Global
 		{DFBA1916-59ED-4900-8A8E-D470E07B4FA5} = {70DCD6D1-8292-4EBB-81B3-39B8EAFCA5FC}
 		{730755DD-1F9D-4AB6-90B7-EC10F1343021} = {09CC7871-43C2-4CC3-9ECB-B3825B1A96A1}
 		{3EC0E87A-1084-44F1-9520-06F73B65F484} = {09CC7871-43C2-4CC3-9ECB-B3825B1A96A1}
+		{25C4FFF7-6CEF-40FD-ADE0-F01656F7D815} = {09CC7871-43C2-4CC3-9ECB-B3825B1A96A1}
 	EndGlobalSection
 EndGlobal

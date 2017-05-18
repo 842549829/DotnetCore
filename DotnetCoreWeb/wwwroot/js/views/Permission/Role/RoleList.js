@@ -39,6 +39,12 @@ function validateRole(role) {
 }
 
 $(function () {
+
+    //查询
+    $("#btnSubmit").on("click", function() {
+        queryCondition();
+    });
+
     // 添加角色
     $("#btnAddRole").on("click", function () {
         setRoleEditInfo(null);
@@ -115,4 +121,23 @@ function removeRoele(self) {
         });
     });
     return false;
+}
+
+// 获取查询条件
+function getCondition() {
+    var obj = new Object();
+    obj.RoleName = $.trim($("#RoleName").val());
+    obj.RoleDescription = $.trim($("#RoleDescription").val());
+    return obj;
+}
+
+// 查询会员信息
+function queryCondition(pageIndex, pageSize) {
+    paging({
+        pageIndex: pageIndex,
+        pageSize: pageSize,
+        url: "/Role/RoleListVal",
+        data: getCondition(),
+        methodname: queryCondition
+    });
 }

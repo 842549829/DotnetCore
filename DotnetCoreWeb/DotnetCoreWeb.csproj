@@ -18,6 +18,7 @@
     <Content Include="wwwroot\js\widget\common.js" />
     <Content Include="wwwroot\js\widget\copyText.js" />
     <Content Include="wwwroot\js\widget\layerExtend.js" />
+    <Content Include="wwwroot\js\widget\pagination.js" />
     <Content Include="wwwroot\lib\hplus\css\animate.min.css" />
     <Content Include="wwwroot\lib\hplus\css\bootstrap.min.css" />
     <Content Include="wwwroot\lib\hplus\css\bootstrap.min14ed.css" />
@@ -772,7 +773,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Account\User\" />
-    <Folder Include="Views\Permission\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
@@ -788,6 +788,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotnetCode.Controller.Base\DotnetCode.Controller.Base.csproj" />
+    <ProjectReference Include="..\DotnetCode.Controller.Permission\DotnetCode.Controller.Permission.csproj" />
     <ProjectReference Include="..\DotnetCore.Code.Mvc\DotnetCore.Code.Mvc.csproj" />
     <ProjectReference Include="..\DotnetCore.Code\DotnetCore.Code.csproj" />
     <ProjectReference Include="..\DotnetCore.Controller.Account\DotnetCore.Controller.Account.csproj" />
