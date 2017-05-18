@@ -33,7 +33,11 @@ namespace DotnetCoreWeb
             });
 
             // 注册MVC
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                // 注册json转实体对象
+                //options.ModelBinderProviders.Insert(0, new JObjectModelBinderProvider());
+            });
         }
 
         /// <summary>
