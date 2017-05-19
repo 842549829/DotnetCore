@@ -5,8 +5,13 @@ namespace DotnetCore.Model.Transfer
     /// <summary>
     /// 用户列表
     /// </summary>
-    public class TAccountCondition : EsayUIPaging
+    public class TAccountCondition
     {
+        /// <summary>
+        /// 分页信息
+        /// </summary>
+        public Paging Paging { get; set; }
+
         /// <summary>
         /// 帐号
         /// </summary>

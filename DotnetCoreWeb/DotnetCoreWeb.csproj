@@ -772,7 +772,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Account\User\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

@@ -147,15 +147,15 @@ namespace DotnetCore.Service
         /// </summary>
         /// <param name="condition">查询条件</param>
         /// <returns>结果</returns>
-        public static EsayUIQueryResult<TAccount> QueryAccountByPaging(TAccountCondition condition)
+        public static QueryResult<TAccount> QueryAccountByPaging(TAccountCondition condition)
         {
             using (var accountesRepository = DbContext.CreateIAccountesRepository())
             {
                 var data = accountesRepository.QueryAccountByPaging(condition).ToTAccounts();
-                EsayUIQueryResult<TAccount> roles = new EsayUIQueryResult<TAccount>
+                QueryResult<TAccount> roles = new QueryResult<TAccount>
                 {
-                    rows = data,
-                    total = condition.RowsCount
+                    Data = data,
+                    Paging = condition.Paging
                 };
                 return roles;
             }

@@ -7,34 +7,30 @@
             <div class="ibox-title">
                 <h5>角色中心</h5>
             </div>
-
             <div class="ibox-content">
                 <div class="row">
-                    @using (Html.BeginForm("RoleList", "Role", FormMethod.Get, new { id = "searchForm" }))
-                    {
-                        <div class="col-sm-4 m-b-xs">
-                            <label class="col-sm-2 control-label text-right">名称</label>
-                            <div class="col-sm-10">
-                                <input class="input-sm form-control" type="text" name="RoleName" id="RoleName" />
-                            </div>
+                    <div class="col-sm-4 m-b-xs">
+                        <label class="col-sm-2 control-label text-right">名称</label>
+                        <div class="col-sm-10">
+                            <input class="input-sm form-control" type="text" name="RoleName" id="RoleName" />
                         </div>
-                        <div class="col-sm-4 m-b-xs">
-                            <label class="col-sm-2 control-label text-right">描述</label>
-                            <div class="col-sm-10">
-                                <input class="input-sm form-control" type="text" name="RoleDescription" id="RoleDescription" />
-                            </div>
+                    </div>
+                    <div class="col-sm-4 m-b-xs">
+                        <label class="col-sm-2 control-label text-right">描述</label>
+                        <div class="col-sm-10">
+                            <input class="input-sm form-control" type="text" name="RoleDescription" id="RoleDescription" />
                         </div>
-                        <div class="col-sm-2 m-b-xs">
-                            <button type="button" id="btnSubmit" class="btn btn-sm btn-primary">
-                                <i class="glyphicon glyphicon-zoom-in"></i>
-                                搜索
-                            </button>
-                            <a id="btnAddRole" href="javascript:void(0)" class="btn btn-sm btn-success" onclick="addRole()">
-                                <i class="glyphicon glyphicon-plus-sign"></i>
-                                添加
-                            </a>
-                        </div>
-                    }
+                    </div>
+                    <div class="col-sm-2 m-b-xs">
+                        <button type="button" id="btnSubmit" class="btn btn-sm btn-primary">
+                            <i class="glyphicon glyphicon-zoom-in"></i>
+                            搜索
+                        </button>
+                        <a id="btnAddRole" href="javascript:void(0)" class="btn btn-sm btn-success" onclick="addRole()">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            添加
+                        </a>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table id="dataList" class="table table-bordered table-hover">

@@ -1,9 +1,11 @@
-﻿using DotnetCore.Model.Transfer;
+﻿using System;
+using DotnetCode.Controller.Base;
+using DotnetCore.Code.Code;
+using DotnetCore.Model.Transfer;
 using DotnetCore.Service;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
-namespace DotnetCode.Controller.Base
+namespace DotnetCore.Controller.Account
 {
     /// <summary>
     /// 用户控制器
@@ -14,23 +16,9 @@ namespace DotnetCode.Controller.Base
         /// 用户列表
         /// </summary>
         /// <returns>结果</returns>
-        public IActionResult UserList(TAccountCondition condition)
+        public IActionResult UserList()
         {
-            if (condition != null)
-            {
-                //var data = AccountService.QueryAccountByPagings(condition);
-                //PagedList<TAccount> pageList = new PagedList<TAccount>(data, condition.PageIndex, condition.PageSize, condition.RowsCount);
-                //ViewModel<TAccountCondition, PagedList<TAccount>> result = new ViewModel<TAccountCondition, PagedList<TAccount>>
-                //{
-                //    Condition = condition,
-                //    Data = pageList
-                //};
-                return this.View();
-            }
-            else
-            {
-                return this.View();
-            }
+            return this.View();
         }
 
         /// <summary>
@@ -38,11 +26,11 @@ namespace DotnetCode.Controller.Base
         /// </summary>
         /// <param name="condition">查询条件</param>
         /// <returns>结果</returns>
-        [AcceptVerbs("POST")]
-        public IActionResult UserListVal(TAccountCondition condition)
+        [HttpPost]
+        public IActionResult UserListVal([FromBody]TAccountCondition condition)
         {
             var data = AccountService.QueryAccountByPaging(condition);
-            return Json(data);
+            return MyJson(data);
         }
 
         /// <summary>
@@ -56,7 +44,7 @@ namespace DotnetCode.Controller.Base
             registerAccount.Password = "123456";
             registerAccount.PayPassword = "123456";
             var result = AccountService.AddUser(registerAccount, null);
-            return Json(result);
+            return MyJson(result);
         }
 
         /// <summary>
@@ -67,8 +55,13 @@ namespace DotnetCode.Controller.Base
         [AcceptVerbs("POST")]
         public IActionResult UpdateUser(TAccount tAccount)
         {
-            var result = AccountService.UpdateUser(tAccount, null);
-            return Json(result);
+            var result = ValidateTAccount(tAccount);
+            if (!result.IsSucceed)
+            {
+                return MyJson(result);
+            }
+            result = AccountService.UpdateUser(tAccount, null);
+            return MyJson(result);
         }
 
         /// <summary>
@@ -80,7 +73,17 @@ namespace DotnetCode.Controller.Base
         public IActionResult RemoveUser(Guid userId)
         {
             var result = AccountService.RemoveUser(userId, null);
-            return Json(result);
+            return MyJson(result);
+        }
+
+        /// <summary>
+        /// 验证用户信息
+        /// </summary>
+        /// <param name="tAccount">用户信息</param>
+        /// <returns>角色</returns>
+        private static Result ValidateTAccount(TAccount tAccount)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -188,14 +188,14 @@ namespace DotnetCore.Repository.Access
                 this.AddParameter("@AccountName", condition.AccountName);
             }
 
-            if (condition.GetRowsCount)
+            if (condition.Paging.GetRowsCount)
             {
                 string sqlCount = "SELECT COUNT(0) FROM Account WHERE 1 = 1 " + sqlCondition + ";";
                 object obj = this.ExecuteScalar(sqlCount);
-                condition.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
+                condition.Paging.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
             }
 
-            string sqlData = string.Format("SELECT TOP {0} * FROM Account WHERE Id NOT IN( SELECT TOP {1} Id  FROM Account);", condition.PageSize, condition.StratRows);
+            string sqlData = string.Format("SELECT TOP {0} * FROM Account WHERE Id NOT IN( SELECT TOP {1} Id  FROM Account);", condition.Paging.PageSize, condition.Paging.StratRows);
             return this.BuildEntitiesFromSql(sqlData);
         }
 

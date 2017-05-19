@@ -188,16 +188,16 @@ namespace DotnetCore.Repository.Mysql
                 this.AddParameter("@AccountName", condition.AccountName);
             }
 
-            if (condition.GetRowsCount)
+            if (condition.Paging.GetRowsCount)
             {
                 string sqlCount = "SELECT COUNT(0) FROM Account WHERE 1 = 1 " + sqlCondition + ";";
                 object obj = this.ExecuteScalar(sqlCount);
-                condition.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
+                condition.Paging.RowsCount = obj == null ? 0 : Convert.ToInt32(obj);
             }
 
             string sqlData = "SELECT * FROM Account WHERE 1 = 1 " + sqlCondition + " ORDER BY IsAdmin DESC, CreateTime DESC LIMIT @StratRows, @PageSize;";
-            this.AddParameter("@StratRows", condition.StratRows);
-            this.AddParameter("@PageSize", condition.PageSize);
+            this.AddParameter("@StratRows", condition.Paging.StratRows);
+            this.AddParameter("@PageSize", condition.Paging.PageSize);
             return this.BuildEntitiesFromSql(sqlData);
         }
 

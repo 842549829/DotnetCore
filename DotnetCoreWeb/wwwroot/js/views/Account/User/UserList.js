@@ -13,7 +13,6 @@ function openAddUser() {
     return false;
 }
 
-
 // 关闭
 function closeEditRole() {
     window.layer.closeAll();
@@ -69,4 +68,29 @@ function saveAddUser() {
             }
         });
     }
+}
+
+function permissionRoleList(accountId, accountName) {
+    window.location.href = "/PermissionRole/PermissionRoleList?accountId=" + accountId + "&accountName=" + encodeURI(accountName);
+    return false;
+}
+
+
+// 获取查询条件
+function getCondition() {
+    var obj = new Object();
+    obj.AccountNo = $.trim($("#AccountNo").val());
+    obj.AccountName = $.trim($("#AccountName").val());
+    return obj;
+}
+
+// 查询
+function queryCondition(pageIndex, pageSize) {
+    paging({
+        pageIndex: pageIndex,
+        pageSize: pageSize,
+        url: "/User/UserListVal",
+        data: getCondition(),
+        methodname: queryCondition
+    });
 }
