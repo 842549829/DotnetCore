@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DotnetCode.Controller.Base;
+using DotnetCore.Model.Transfer;
 using DotnetCore.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,13 +38,12 @@ namespace DotnetCode.Controller.Permission
         /// <summary>
         /// 保存权限菜单
         /// </summary>
-        /// <param name="roleId">角色Id</param>
-        /// <param name="menuIds">菜单Id</param>
+        /// <param name="model">用户</param>
         /// <returns>结果</returns>
         [HttpPost]
-        public IActionResult SavePermissionMenu([FromBody]Guid roleId, [FromBody]List<Guid> menuIds)
+        public IActionResult SavePermissionMenu([FromBody]PermissionModel model)
         {
-            var result = PermissionService.SavePermissionMenu(roleId, menuIds, null);
+            var result = PermissionService.SavePermissionMenu(model.RoleId, model.MenuIds, null);
             return MyJson(result);
         }
     }

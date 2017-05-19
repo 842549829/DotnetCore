@@ -36,7 +36,7 @@ $(document).ready(function () {
     $("#btnSave").click(function () {
         var menuIds = getCheckValue();
         var roleId = $.trim($("#hidRoleId").val());
-        var parameter = { roleId: roleId, menuIds: menuIds };
+        var parameter = { RoleId: roleId, MenuIds: menuIds };
         var data = JSON.stringify(parameter);
         $.ajaxExtend({
             data: data,
@@ -89,8 +89,7 @@ function loadRoleInfo() {
     var roleId = $.trim($("#hidRoleId").val());
     $.ajaxExtend({
         async: false,
-        data: JSON.stringify({ roleId: roleId }),
-        url: "/PermissionMenu/QueryMenuIds",
+        url: "/PermissionMenu/QueryMenuIds" + "?roleId=" + roleId,
         success: function (d) {
             $.each(d, function (index, item) {
                 if (item != null && treeObj.getNodeByParam("id", item, null) != null && treeObj.getNodeByParam("id", item, null).isParent === false) {

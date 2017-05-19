@@ -41,7 +41,7 @@ function validateRole(role) {
 $(function () {
 
     //查询
-    $("#btnSubmit").on("click", function() {
+    $("#btnSubmit").on("click", function () {
         queryCondition();
     });
 
@@ -140,4 +140,9 @@ function queryCondition(pageIndex, pageSize) {
         data: getCondition(),
         methodname: queryCondition
     });
+}
+
+function permissionMenuList(roleId, roleName) {
+    window.location.href = "/PermissionMenu/PermissionMenuList?roleId=" + roleId + "&roleName=" + encodeURI(roleName);
+    return false;
 }

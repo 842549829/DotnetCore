@@ -87,7 +87,7 @@
             <td>${RoleName}</td>
             <td>${RoleDescription}</td>
             <td class="text-right">
-                <a href="/PermissionMenu/PermissionMenuList?roleId=${Id}&roleName=${RoleName}"><i class="glyphicon glyphicon-user text-navy"></i>权限</a>
+                <a href="javascript:void(0)" onclick="permissionMenuList('${Id}','${RoleName}')"><i class="glyphicon glyphicon-user text-navy"></i>权限</a>
                 <a href="javascript:void(0)" data='{"Id":"${Id}","RoleName":"${RoleName}","RoleDescription":"${RoleDescription}"}' onclick="updateRole(this)"><i class="glyphicon glyphicon-pencil text-navy"></i>修改</a>
                 <a href="javascript:void(0)" data='{"Id":"${Id}","RoleName":"${RoleName}","RoleDescription":"${RoleDescription}"}' onclick="removeRoele(this)"><i class="glyphicon glyphicon-trash text-navy"></i>删除</a>
             </td>
