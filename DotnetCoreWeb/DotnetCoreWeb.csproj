@@ -797,6 +797,9 @@
     <Content Update="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="hosting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="logs.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
