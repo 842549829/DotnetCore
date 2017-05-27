@@ -17,5 +17,11 @@ namespace DotnetCore.IRepository
         /// <param name="condition">查询条件</param>
         /// <returns>结果</returns>
         IEnumerable<MRole> QueryRolesByPaging(TRoleCondition condition);
+
+        /// <summary>
+        /// 根据公司名称查询角色
+        /// </summary>
+        /// <returns>角色</returns>
+        IEnumerable<MRole> QueryRolesByCompanyId();
     }
 }

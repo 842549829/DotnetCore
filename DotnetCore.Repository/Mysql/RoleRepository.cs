@@ -71,6 +71,17 @@ namespace DotnetCore.Repository.Mysql
         }
 
         /// <summary>
+        /// 根据公司名称查询角色
+        /// </summary>
+        /// <returns>角色</returns>
+        public IEnumerable<MRole> QueryRolesByCompanyId()
+        {
+            this.ClearParameters();
+            string sqlData = "SELECT * FROM Role ORDER BY Id;";
+            return this.BuildEntitiesFromSql(sqlData);
+        }
+
+        /// <summary>
         /// 添加角色
         /// </summary>
         /// <param name="item">角色</param>

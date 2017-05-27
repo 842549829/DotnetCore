@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using DotnetCode.Controller.Base;
 using DotnetCore.Model.Transfer;
 using DotnetCore.Service;
@@ -22,7 +21,8 @@ namespace DotnetCode.Controller.Permission
         {
             ViewBag.AccountId = accountId;
             ViewBag.AccountName = accountName + "(角色设置)";
-            return this.View();
+            var data = RoleService.QueryRolesByCompanyId();
+            return this.View(data);
         }
 
         /// <summary>
@@ -44,6 +44,18 @@ namespace DotnetCode.Controller.Permission
         public IActionResult SavePermissionRole([FromBody]PermissionModel model)
         {
             var result = PermissionService.SavePermissionMenu(model.RoleId, model.MenuIds, null);
+            return MyJson(result);
+        }
+
+        /// <summary>
+        /// 保存用户角色关系
+        /// </summary>
+        /// <param name="model">用户</param>
+        /// <returns>结果</returns>
+        [HttpPost]
+        public IActionResult SaveAccountRole([FromBody] AccountRoleModel model)
+        {
+            var result = PermissionService.SavePermissionRole(model.AccountId, model.Roles, null);
             return MyJson(result);
         }
     }

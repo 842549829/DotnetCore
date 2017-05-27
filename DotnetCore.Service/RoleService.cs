@@ -143,5 +143,18 @@ namespace DotnetCore.Service
                 return data;
             }
         }
+
+        /// <summary>
+        /// 根据公司名称查询角色
+        /// </summary>
+        /// <returns>角色</returns>
+        public static IEnumerable<TRole> QueryRolesByCompanyId()
+        {
+            using (var roleRepository = DbContext.CreateIRoleRepository())
+            {
+                var data = roleRepository.QueryRolesByCompanyId().ToTRole();
+                return data;
+            }
+        }
     }
 }
