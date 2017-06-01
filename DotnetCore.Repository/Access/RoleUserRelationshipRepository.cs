@@ -8,6 +8,7 @@ using DotnetCore.Infrastructure.EntityFactoryFramework;
 using DotnetCore.Infrastructure.UnitOfWork;
 using DotnetCore.IRepository;
 using DotnetCore.Model.DB;
+using DotnetCore.Repository.Factory;
 
 namespace DotnetCore.Repository.Access
 {
@@ -72,7 +73,7 @@ namespace DotnetCore.Repository.Access
         /// <returns>数据工厂</returns>
         protected override IEntityFactory<MRoleUserRelationship> BuildEntityFactory()
         {
-            return null;
+            return new RoleUserRelationshipFactory();
         }
 
         /// <summary>
@@ -97,6 +98,24 @@ namespace DotnetCore.Repository.Access
             {
                 this.UnitOfWork.RegisterAction(accountId, this.RemoveByAccountIdValue);
             }
+        }
+
+        /// <summary>
+        /// 查询可用角色Id
+        /// </summary>
+        /// <returns>用户Id</returns>
+        public IEnumerable<Guid> QueryRoleIds(Guid accountId)
+        {
+            this.ClearParameters();
+            const string sql = "SELECT * FROM RoleUserRelationship WHERE AccountId = @AccountId;";
+            this.AddParameter("@AccountId", accountId);
+            var roles = this.BuildEntitiesFromSql(sql);
+            List<Guid> result = new List<Guid>();
+            foreach (var item in roles)
+            {
+                result.Add(item.RoleId);
+            }
+            return result;
         }
 
         /// <summary>
@@ -135,7 +154,7 @@ namespace DotnetCore.Repository.Access
         public void AddValue(object entity)
         {
             this.ClearParameters();
-            var items = entity as IList<MRoleUserRelationship>;
+            var items = entity as IEnumerable<MRoleUserRelationship>;
             if (items == null || !items.Any())
             {
                 return;

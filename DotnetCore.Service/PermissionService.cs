@@ -33,6 +33,18 @@ namespace DotnetCore.Service
         }
 
         /// <summary>
+        /// 查询可用角色Id
+        /// </summary>
+        /// <returns>用户Id</returns>
+        public static IEnumerable<Guid> QueryRoleIds(Guid accountId)
+        {
+            using (IRoleUserRelationshipRepository roleUserRelationshipRepository = DbContext.CreateIRoleUserRelationshipRepository())
+            {
+                return roleUserRelationshipRepository.QueryRoleIds(accountId);
+            }
+        }
+
+        /// <summary>
         /// 保存权限菜单
         /// </summary>
         /// <param name="roleId">角色Id</param>

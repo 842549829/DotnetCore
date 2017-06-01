@@ -5,10 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="JSON\" />
-    <Folder Include="Oracle\" />
-    <Folder Include="TXT\" />
-    <Folder Include="XML\" />
+    <Compile Remove="JSON\**" />
+    <Compile Remove="Oracle\**" />
+    <Compile Remove="TXT\**" />
+    <Compile Remove="XML\**" />
+    <EmbeddedResource Remove="JSON\**" />
+    <EmbeddedResource Remove="Oracle\**" />
+    <EmbeddedResource Remove="TXT\**" />
+    <EmbeddedResource Remove="XML\**" />
+    <None Remove="JSON\**" />
+    <None Remove="Oracle\**" />
+    <None Remove="TXT\**" />
+    <None Remove="XML\**" />
   </ItemGroup>
 
   <ItemGroup>

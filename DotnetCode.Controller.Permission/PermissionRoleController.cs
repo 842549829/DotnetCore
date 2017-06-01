@@ -22,6 +22,7 @@ namespace DotnetCode.Controller.Permission
             ViewBag.AccountId = accountId;
             ViewBag.AccountName = accountName + "(角色设置)";
             var data = RoleService.QueryRolesByCompanyId();
+            ViewBag.RoleIds = PermissionService.QueryRoleIds(accountId);
             return this.View(data);
         }
 

@@ -1,5 +1,8 @@
 ﻿using Autofac;
+using DotnetCore.Code.Utility;
 using DotnetCore.MysqlDbFactory;
+using DotnetCore.SqlServerDbFactory;
+using Microsoft.Extensions.Configuration;
 
 namespace DotnetCore.Domain
 {
@@ -43,8 +46,23 @@ namespace DotnetCore.Domain
         /// </summary>
         public static void GetContainerBuilder()
         {
+            IConfiguration configuration = Configuration.GetConfigurationRootByJson("config.json");
             var builder = new ContainerBuilder();
-            builder.RegisterType<MysqlFactory>().As<IDbFactory.IDbFactory>();
+            switch (configuration["ProviderName"].ToLower())
+            {
+                case "mysql.data.mysqlclient":
+                    builder.RegisterType<MysqlFactory>().As<IDbFactory.IDbFactory>();
+                    break;
+                case "oracle.data.oracleclient":
+                    //conn = new OracleConnection(connectionSetting.ConnectionString);
+                    break;
+                case "access.data.accessclient":
+                    //conn = new OleDbConnection(connectionSetting.ConnectionString);
+                    break;
+                default:
+                    builder.RegisterType<SqlServerFactory>().As<IDbFactory.IDbFactory>();
+                    break;
+            }
             container = builder.Build();
         }
     }

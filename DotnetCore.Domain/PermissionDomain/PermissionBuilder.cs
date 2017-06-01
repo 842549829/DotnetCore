@@ -37,8 +37,8 @@ namespace DotnetCore.Domain.PermissionDomain
             return roleIds.Select(item => new MRoleUserRelationship
             {
                 Id = Guid.NewGuid(),
-                RoleId = accountId,
-                AccountId = item
+                RoleId = item,
+                AccountId = accountId
             });
         }
     }

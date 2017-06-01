@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<DotnetCore.Model.Transfer.TRole>
+@{
+    var roles = ViewBag.RoleIds as IEnumerable<Guid>;
+}
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
         <div class="col-sm-6">
@@ -20,7 +23,14 @@
                             <div class="col-sm-8" id="divRole">
                                 @foreach (var item in Model)
                                 {
-                                    <p><input type="checkbox" value="@item.Id"/><label>@item.RoleName</label></p>
+                                    if (roles != null && roles.Any(id => id == item.Id))
+                                    {
+                                        <p><input type="checkbox" value="@item.Id" checked="checked" /><label>@item.RoleName</label></p>
+                                    }
+                                    else
+                                    {
+                                        <p><input type="checkbox" value="@item.Id"/><label>@item.RoleName</label></p>
+                                    }
                                 }
                             </div>
                         </div>
