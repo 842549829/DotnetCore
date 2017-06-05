@@ -18,6 +18,7 @@
     <Content Include="wwwroot\js\widget\common.js" />
     <Content Include="wwwroot\js\widget\copyText.js" />
     <Content Include="wwwroot\js\widget\layerExtend.js" />
+    <Content Include="wwwroot\js\widget\myTree.js" />
     <Content Include="wwwroot\js\widget\pagination.js" />
     <Content Include="wwwroot\lib\hplus\css\animate.min.css" />
     <Content Include="wwwroot\lib\hplus\css\bootstrap.min.css" />
